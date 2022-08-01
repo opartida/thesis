@@ -1,0 +1,4 @@
+Over the last few years, many observables related
+to the Flavor Changing Neutral Current transitions \(b\rightarrow sl^+l^- \) have exhibited deviations from Standard Model expectations. These transitions are well known to have a high sensitivity to potential New Physics contributions. Their analyses can be efficiently and consistently performed in a model-independent effective field theory (EFT) framework, where all
+short-distance physics is encoded in Wilson coefficients of higher-dimension operators. Current analysis of anomalies in
+flavor physics are based on a linear regression of a \(\chi^2 \) function. In this work we test some Machine Learning techniques to  determine what combination of new operators renders the best possible fit to experimental data.

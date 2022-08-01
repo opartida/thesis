@@ -1,0 +1,490 @@
+Proposal for B-meson decay analysis
+Pere Masjuan
+April 17, 2020
+
+1
+
+State-of-the-art
+
+Current analysis of anomalies in flavour physics are based on a linear regression of a χ2 function. After taking into account correlation between
+theoretical predictions and experimental observables, a χ2 function is built
+and minimized.
+Currently, 180 observables are considered from different collaborations [4,
+5, 6, 7, 8, 10, 11]. Observable is referred to a measurement of either an angular observable, a branching ratio, or a ratio, in a particular energy bin. For
+B → Kµµ, the available energy of the µµ invariant mass (the so called q 2
+variable), runs from 0 to (mB − mK )2 ∼ 22GeV2 while for the B → K ∗ µµ
+runs from 0 to (mB −mK∗ )2 ∼ 19GeV2 . In this exercise, charged and neutral
+modes of the B meson are considered. This brings, B 0,± → K 0,± which are
+equivalent up to isospin corrections, thus important to include all of them
+for enlarging the data set. We also count with two different leptonic final
+states, µµ and e + e−. Rations of the same observable but with different
+lepton at the final state, the so-called R ratios, are also included and play an
+important psychological goal since they are a clear indication of the Lepton
+Flavor Universality Violation - LFUV - (this is, that the Z and W bosons
+of the SM interact differently with electrons and muons, something which
+is not expected from the theory) [3]. On the contrary, deviations between
+theory and experiment for specific lepton, either muons or electrons, cannot distinguish whether the anomaly is due to LFUV phenomenon or new
+physics come universally for muons and electrons. Only the combination of
+lepton-flavor dependent and rations of observables with different leptons in
+the final state may help. But actually, there is no clean way to disentangle
+such situation and current attempts consider that the most appealing solution to the puzzle is indeed having two different new physics scenarios, two
+different new-physics particles, one affecting all lepton flavours and a second
+one affecting exclusively the muonic modes [2].
+1
+
+For a given decay process, for example, the branching ratio B 0 → K ∗0 µµ
+we will have five or six energy bins, with each bin having 1 or 2 GeV2 sizes,
+thus providing 5 of 6 so-called observables into the fit.
+For each measured observable, we have a theory prediction based on the
+Standard Model of Particle Physics (SM). With 180 observables, the χ2 value
+of the SM reaches 225 points [1], which corresponds to a p-value of 1.4%.
+This indicates the SM to be very far to explain experimental measurements.
+The strategy then has been to include on top of the SM, new operators
+in the effective Hamiltonian to be able to account for such experimental
+discrepancies.
+Standard strategy, the simplest one, considers one-single operator at a
+time, the so-called 1D fits, starting with C7 , C9 and C10 . For example, in
+Table 1, some examples can be found from Ref. [1]. The first one, a fit with
+NP returns C NP = −0.98. The C SM ∼ 4, so the NP correction to the SM to
+C9µ
+9µ
+9µ
+explain these anomalies are around 25%, pretty large. PullSM reflects how
+NP ) would be able to
+difficult would be for that model (defined as SM + C9µ
+explain the SM. The p-value is then a criterion to decide whether this fit is
+rejected or not. Since p-values are very large, the fit is very good compared
+to the SM p-value of 1.4%.
+1D Hyp.
+
+Best fit
+
+NP
+C9µ
+
+-0.98
+
+NP = −C NP
+C9µ
+10µ
+
+-0.46
+
+NP = −C 0
+C9µ
+9 µ
+
+-0.99
+
+NP = −3C NP
+C9µ
+9e
+
+-0.87
+
+All
+1 σ/2 σ
+[−1.15, −0.81]
+[−1.31, −0.64]
+[−0.56, −0.37]
+[−0.66, −0.28]
+[−1.15, −0.82]
+[−1.31, −0.64]
+[−1.03, −0.71]
+[−1.19, −0.55]
+
+PullSM
+
+p-value
+
+Best fit
+
+5.6
+
+65.4 %
+
+-0.89
+
+5.2
+
+55.6 %
+
+-0.40
+
+5.5
+
+62.9 %
+
+-1.61
+
+5.5
+
+61.9 %
+
+-0.66
+
+LFUV
+1 σ/ 2 σ
+PullSM
+[−1.23, −0.59]
+3.3
+[−1.60, −0.32]
+[−0.53, −0.29]
+4.0
+[−0.63, −0.18]
+[−2.13, −0.96]
+3.0
+[−2.54, −0.41]
+[−0.90, −0.44]
+3.3
+[−1.17, −0.24]
+
+Table 1: Most prominent 1D patterns of NP in b → sµ+ µ− . PullSM is
+quoted in units of standard deviation. The p-value of the SM hypothesis is
+11.0% for the fit “All” and 8.0% for the fit LFUV.
+
+2
+
+Aim of this project
+
+Use a neural network to determine what combination of new operators renders the best possible fit to experimental data.
+The intuition can be obtained by looking at the tables of Ref. [1], one of
+them reproduced here. Forget by now about coefficients with a prime such
+as C90 or C100 . The difference between C9V and C9U is that V refers to muon
+2
+
+p-value
+52.2 %
+74.0 %
+42.5 %
+52.2 %
+
+channel exclusively while U means both muons and electrons. In the long
+table, different ad-hoc combinations of wilson coefficients are considered.
+There are, of course, other options. The question is what is the particular
+combnation that renders the largest agreement with data without using
+all coeficients free. This is, instead of using, for example 4 parameters
+V , C U , what combination of two parameters (made from the
+C9V , C9U and C10
+10
+V ) yields the
+combination of these four, for example C9V = ±C9U , C9V = ±C10
+best agreement.
+The goal is then try to look for these combination via exploring the many
+options using a neural network. The input shall be a fit with one single
+parameter at the begining, and explore different χ2 values using different
+input coefficients for each observable and then let the neural network decide
+the best strategy. Combining 2D fits, with two different combinations of
+coeficients, arbitrary cobination, also provides information for the NN to
+learn, and it is proved that this is most eficient.
+
+3
+
+Trining exercise
+
+Before starting with full fits with 180 observables, we shall explore the mechanics with a just few of them that can be easily parameterized as a polynomial. The example considers the hP50 i observable, the most famous one,
+in different bins. I run my codes to generate a polynomial description for
+this observable. In the table, experimental results and SM predictions for
+the observable are collected.
+We will use the following parameterization for the observables.
+2
+hP50 i[0.1,0.98] = 0.674 − 0.060C10 − 0.012C10
+− 0.104C9 − 0.010C9 C10 + 0.005C92
+2
+hP50 i[1.1,2.5] = 0.196 − 0.001C10 − 0.004C10
+− 0.210C9 + 0.001C9 C10 + 0.002C92
+2
+hP50 i[2.5,4] = −0.491 − 0.042C10 + 0.001C10
+− 0.285C9 − 0.020C9 C10 + 0.033C92
+2
+hP50 i[4,6] = −0.826 − 0.066C10 + 0.004C10
+− 0.207C9 + 0.011C9 C10 + 0.058C92
+2
+hP50 i[6,8] = −0.937 − 0.060C10 + 0.009C10
+− 0.131C9 + 0.036C9 C10 + 0.055C92
+2
+hP50 i[15,19] = −0.572 − 0.021C10 + 0.010C10
+− 0.040C9 + 0.029C9 C10 + 0.025C92
+
+Notice that for C9 = C10 = 0, we recover the SM prediction.
+Imagine, you solve hP50 i[0.1,0.98] = 0.52 ± 0.10 but using only C9 , you get
+C9 = 1.58. However, if you take hP50 i[4,6] = −0.83 ± 0.08, you get C9 = −1.32
+which has nothing to do. A combined fit to all these observables returns
+3
+
+Scenario
+Scenario 5
+Scenario 6
+Scenario 7
+Scenario 8
+Scenario 9
+Scenario 10
+Scenario 11
+Scenario 12
+
+Scenario 13
+
+V
+C9µ
+V
+C10µ
+U
+C9U = C10
+V
+V
+C9µ = −C10µ
+U
+U
+C9 = C10
+V
+C9µ
+C9U
+V
+V
+C9µ = −C10µ
+C9U
+V
+V
+C9µ = −C10µ
+U
+C10
+V
+C9µ
+U
+C10
+V
+C9µ
+U
+C10
+0
+C9V0 µ
+U
+C10
+V
+C9µ
+C9V0 µ
+U
+C10
+U
+C100
+
+Best-fit point
+−0.54
++0.58
+−0.43
+−0.56
+−0.41
+−0.84
+−0.25
+−0.34
+−0.80
+−0.66
+−0.40
+−1.03
++0.28
+−1.11
+−0.29
+−0.06
++0.44
+−1.16
++0.56
++0.28
++0.01
+
+1σ
+[−1.06, −0.06]
+[+0.13, +0.97]
+[−0.85, +0.05]
+[−0.65, −0.47]
+[−0.53, −0.29]
+[−1.15, −0.54]
+[−0.59, +0.10]
+[−0.44, −0.25]
+[−0.98, −0.60]
+[−0.79, −0.52]
+[−0.63, −0.17]
+[−1.18, −0.87]
+[+0.12, +0.45]
+[−1.26, −0.95]
+[−0.44, −0.15]
+[−0.21, +0.10]
+[+0.26, +0.62]
+[−1.31, −1.00]
+[+0.27, +0.83]
+[+0.08, +0.49]
+[−0.19, +0.22]
+
+2σ
+[−1.68, +0.39]
+[−0.48, +1.33]
+[−1.23, +0.67]
+[−0.75, −0.38]
+[−0.64, −0.16]
+[−1.48, −0.26]
+[−0.92, +0.47]
+[−0.54, −0.16]
+[−1.16, −0.39]
+[−0.93, −0.40]
+[−0.86, +0.07]
+[−1.33, −0.71]
+[−0.04, +0.62]
+[−1.40, −0.78]
+[−0.58, −0.01]
+[−0.37, +0.26]
+[+0.09, +0.81]
+[−1.46, −0.83]
+[−0.02, +1.10]
+[−0.11, +0.70]
+[−0.40, +0.42]
+
+PullSM
+
+p-value
+
+6.0
+
+39.4 %
+
+6.2
+
+41.4 %
+
+6.0
+
+36.5 %
+
+6.5
+
+48.4 %
+
+5.7
+
+28.4 %
+
+6.2
+
+41.5 %
+
+6.3
+
+43.9 %
+
+2.1
+
+2.2 %
+
+6.2
+
+49.2 %
+
+Table 2: Most prominent patterns for LFU and LFUV NP contributions
+from Fit “All”. Scenarios 5 to 8 were introduced in Ref. [2]. Scenarios 9
+(motivated by 2HDMs [13]) and 10 to 13 (motivated by Z 0 models with
+vector-like quarks [14]) are newly introduced in the main text.
+
+C9 = −1.06 with χ2min = 9.2, which is not really a good fit. Moreover, if
+we neglect the last bin, the fit returns C9 = −1.24 with χ2min = 4.0, much
+better. The question is then, what observable weights more in the fit and
+how can be put into agreement the different tensions.
+Figure 1 represents the final philosophy. Each observable (yellow circle)
+has an experimental value (xi ) depending on the bin you are looking at. For
+hP50 i we have 6 different bins, so we will have 6 different xi . Each of it can
+include C9 , C10 , with V, U , and all these options are represented with yi . The
+combination of observable in a particular bin, with a fit with a C coefficient,
+returns a χ2 value.
+The NN should learn how to reach the best χ2 by exploring all the
+possible combinations of C wilson coefficients with the experimental values
+
+4
+
+Discrepancy Theory - Experiment
+(one observable has several bins)
+
+χ2(x,y)
+
+Result of the OneDimensional Fit
+two-dim fit, etc
+
+the χ2(x,y) function
+depends on observables
+and their deviation.
+We can minimize it as a
+whole, or look at the
+closest possible value
+χ2(x,y)/DOF = 1
+
+Observable
+
+DOF= degree of freedom
+
+Figure 1: Simplistic view of a neural network.
+
+5
+
+Table 3: hP50 i bins, SM predictions, experimental results from LHCb collaboration, and Pulls between SM and experiment.
+bin
+(0.1, 0.98)
+(1.1, 2.5)
+(2.5, 4)
+(4, 6)
+(6, 8)
+(15, 19)
+
+SM
+0.67 ±0.14
+0.20 ±0.12
+-0.49 ±0.12
+-0.83 ±0.08
+-0.94 ±0.08
+-0.57 ±0.05
+
+experiment
+0.52 ±0.10
+0.37 ±0.12
+-0.15 ±0.15
+-0.44 ±0.12
+-0.58 ±0.09
+-0.67 ±0.06
+
+Pull
++0.9
+-1.0
+-1.8
+-2.7
+-2.9
++1.2
+
+and learn what is the optimal weights of the observables.
+Two different strategies to be compared:
+• look for the minimum χ2
+• look for the solution with closer χ2 /dof = 1 possible.
+
+References
+[1] M. Algueró, B. Capdevila, A. Crivellin, S. Descotes-Genon, P. Masjuan,
+J. Matias, M. Novoa and J. Virto, Eur. Phys. J. C 79 (2019) no.8, 714
+[arXiv:1903.09578 [hep-ph]].
+[2] M. Algueró, B. Capdevila, S. Descotes-Genon, P. Masjuan and J. Matias, Phys. Rev. D 99 (2019) no.7, 075017 [arXiv:1809.08447 [hep-ph]].
+[3] A. Vicente, [arXiv:2001.04788 [hep-ph]].
+[4] R. Aaij et al. [LHCb Collaboration], arXiv:1903.09252 [hep-ex].
+[5] S. Choudhury for the Belle collaboration, “Measurement of Lepton
+Flavour Universality in B decays at Belle”, Talk at ‘EPS-HEP Conference 2019’.
+[6] R. Aaij et al. [LHCb Collaboration], JHEP 1406 (2014) 133
+[arXiv:1403.8044 [hep-ex]].
+[7] A. Abdesselam et al. [Belle Collaboration], arXiv:1904.02440 [hep-ex].
+[8] M. Aaboud et al. [ATLAS Collaboration], [arXiv:1812.03017 [hep-ex]].
+6
+
+[9] S. Aoki et al. [Flavour Lattice Averaging Group], arXiv:1902.08191
+[hep-lat].
+[10] S. Wehle et al. [Belle Collaboration], Phys. Rev. Lett. 118 (2017) no.11,
+111801 [arXiv:1612.05014 [hep-ex]].
+[11] A. Abdesselam et al. [Belle Collaboration], arXiv:1604.04042 [hep-ex].
+[12] L. Calibbi, A. Crivellin and T. Li, Phys. Rev. D 98 (2018) no.11, 115002
+[arXiv:1709.00692 [hep-ph]].
+[13] A. Crivellin, D. Muller and C. Wiegand, arXiv:1903.10440 [hep-ph].
+[14] C. Bobeth, A. J. Buras, A. Celis and M. Jung, JHEP 1704 (2017) 079
+[arXiv:1609.04783 [hep-ph]].
+
+7
+
+

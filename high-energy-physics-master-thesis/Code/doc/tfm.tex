@@ -1,0 +1,518 @@
+% polyx.tex
+\documentclass{article}
+%\usepackage[boxed]{algorithm2e}
+%\usepackage{comment}
+%%% AMSMATH SUBS -- nonoptimal
+%\newcommand{\eqref}[1]{(\ref{#1})}
+%\newcommand{\operatorname}{\mbox}
+%\newcommand{\operatornamewithlimits}{\mbox}
+%\newcommand{\text}{\mbox}
+%\newcommand{\argmin}{\mathop{arg\,min}}
+%%%
+%\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+\usepackage{longfbox}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage[compat=1.0.0]{tikz-feynman}
+\usepackage{gensymb}
+\usepackage[mathstyleoff]{breqn}
+\usepackage{csquotes}
+\usepackage{slashed}
+\usetikzlibrary{babel}
+\usetikzlibrary{positioning,arrows.meta}
+
+\usepackage[spanish, activeacute]{babel} %Definir idioma español
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{tkz-euclide}
+\usepackage{esvect}
+\usepackage{amsmath}
+\DeclareMathOperator{\Tr}{Tr}
+\usepackage{csquotes}
+\usepackage{breqn}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{gensymb}
+
+\renewcommand\floatpagefraction{.95}
+\renewcommand\topfraction{.95}
+\renewcommand\bottomfraction{.95}
+\renewcommand\textfraction{.05}
+\renewcommand\floatsep{10pt}
+\renewcommand\textfloatsep{10pt}
+\renewcommand\intextsep{10pt}
+\renewcommand{\baselinestretch}{1.5} 
+
+% These four commands are to fix equation numbering
+%\makeatletter
+%\renewcommand\theequation{\thesection.\arabic{equation}}
+%\@addtoreset{equation}{section}
+%\makeatother
+%***************************%
+\iffalse
+% STRONG margin Manipulation
+\setlength{\topmargin}{7mm}
+\setlength{\topmargin}{-.5in}
+\setlength{\oddsidemargin}{-.3in}
+\setlength{\evensidemargin}{-.3in}
+\setlength{\textwidth}{1.5\textwidth} % Make are margins wider
+\setlength{\textheight}{1.15\textheight}
+%\setlength{\oddsidemargin}{0.1\oddsidemargin}
+%\setlength{\evensidemargin}{0.1\evensidemargin}
+\fi
+
+\iffalse
+% MODERATE margin Manipulation
+%\setlength{\topmargin}{7mm} % Is top margin useful to manipulate?
+%\setlength{\topmargin}{-.5in}
+%\setlength{\oddsidemargin}{-.1in}
+%\setlength{\evensidemargin}{-.1in}
+\setlength{\textwidth}{1.1\textwidth} % Make are margins wider
+\setlength{\textheight}{1.15\textheight}
+\fi
+%%% ad-hoc spacing commands
+
+
+\iffalse
+% NEW (milder) margin Manipulation
+%\setlength{\topmargin}{7mm} % Is top margin useful to manipulate?
+%\setlength{\topmargin}{-.5in}
+%\setlength{\oddsidemargin}{-.1in}
+%\setlength{\evensidemargin}{-.1in}
+\setlength{\textwidth}{1.05\textwidth} % Make are margins wider
+\setlength{\textheight}{1.15\textheight}
+\fi
+%%% ad-hoc spacing commands
+\newcommand{\vmina}{\vspace{-.1in}}
+\newcommand{\vminb}{\vspace{-.03in}}
+
+
+%\iffalse
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{italg}[theorem]{Algorithm}
+\newtheorem{itexamp}[theorem]{Example}
+%\fi
+
+\newtheorem{myclaim}{Claim}
+
+
+
+\newcommand\myset[2]{ \left\{ {#1} \,:\, {#2} \right\} }
+\newcommand\Binsum[2]{ { {#1} \choose \leq {#2} } }
+\newcommand{\fset}{{\cal U}}
+\newcommand\marcom[1]{\marginpar{{\bf\small{#1}}}}
+
+
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bw}{\mathbf w}
+\newcommand{\by}{\mathbf y}
+\newcommand{\bzero}{\mathbf 0}
+\newcommand{\bh}{\mathbf h}
+
+\newcommand{\predprob}{ {\rho} }
+%\newcommand{\predexp}{ {\phi} }
+\newcommand{\loss}{ {L} }
+\newcommand{\expt}{ {\cal E} }
+
+\newcommand{\sumn}{{\sum_{i=1}^n}}
+\newcommand{\sumtl}{{\sum_{t=1}^{\ell}}}
+\newcommand{\sumsts}{{\sum_{t=s}^{s'}}}
+
+\newcommand{\res}{{\rho}}
+
+
+\newcommand{\xt}{ {{\bf x}_t}}
+\newcommand{\xti}{{x_{t,i}}}
+\newcommand{\xtj}{{x_{t,j}}}
+
+\newcommand{\ds}{{Z}}
+\newcommand{\dsln}{{Z_{\ln}}}
+\newcommand{\dsid}{{Z_{\mbox{id}}}}
+\newcommand{\dsm}{{\bz}}
+\newcommand{\dsmc}{{z}}
+
+
+%\newcommand{\wt}{ \mbox{\boldmath$w$}_t }
+%\newcommand{\wts}{ \mbox{\boldmath$w$}_{t+1} }
+\newcommand{\wt}{\mathbf w_t }
+\newcommand{\wts}{\mathbf w_t}
+
+\iffalse
+\newcommand{\wti}{w_{t,i}}
+\newcommand{\wtsi}{w_{t+1,i}}
+\newcommand{\wtj}{w_{t,j}}
+\newcommand{\wtsj}{w_{t+1,j}}
+\fi
+
+\newcommand{\vt}{\mathbf v_t }
+\newcommand{\vts}{\mathbf v_{t+1}}
+\newcommand{\vti}{v_{t,i}}
+\newcommand{\vtsi}{v_{t+1,i}}
+\newcommand{\vtj}{v_{t,j}}
+\newcommand{\vtsj}{v_{t+1,j}}
+
+\newcommand{\ut}{\mathbf u_t}
+\newcommand{\uts}{\mathbf u_{t+1}}
+\newcommand{\uti}{u_{t,i}}
+\newcommand{\utsi}{u_{t+1,i}}
+\newcommand{\utsj}{u_{t+1,j}}
+
+\newcommand{\sumin}{{\sum_{i=1}^n}}
+\newcommand{\sumim}{{\sum_{i=1}^m}}
+\newcommand{\sumjm}{{\sum_{j=1}^m}}
+\newcommand{\sumjn}{{\sum_{j=1}^n}}
+\newcommand{\sumit}{{\sum_{i=1}^t}}
+\newcommand{\sumjt}{{\sum_{j=1}^t}}
+\newcommand{\sumik}{{\sum_{i=1}^k}}
+\newcommand{\norm}[1]{{\|{#1}\|}}
+
+
+\newcommand{\lat}{{L_{A,t}}}
+\newcommand{\lut}{{L_{\bu,t}}}
+\newcommand{\lit}{{L_{i,t}}}
+\newcommand{\unif}{{\frac{1}{n}}}
+
+\newcommand{\aksched}{{<([t_0,t_1),\bu_0),([t_1,t_2),\bu_1),\ldots,
+		([t_{k},t_{k+1}),\bu_k)>}}
+\newcommand{\flut}{{L(S,\!<\!\bu\!>\!)}}
+
+%\newcommand{\equref}[1]{(\ref{#1})}
+\newcommand{\pred}{ {\hat{y} }}
+\newcommand{\predt}{ {\hat{y}_t} }
+\newcommand{\predtqg}{ {\hat{\by}^{i}_t(\gparm)} }
+\newcommand{\predjqg}{ {\hat{\by}^{i}_j(\gparm)} }
+
+
+\newcommand{\outc}{ {y} }
+\newcommand{\outct}{ {y_t} }
+\newcommand{\epredt}{ {x_{t,i}} }
+\newcommand{\lpt}{ {\cal P} }
+\newcommand{\Lu}{{\hat{L}}}
+\newcommand{\lu}{{\hat{\ell}}}
+\newcommand{\ku}{{\hat{k}}}
+\newcommand{\lossofalgonseq}{{L(S,A)}}
+\newcommand\floor[1]{{\left\lfloor {#1} \right\rfloor}}
+\newcommand\ceil[1]{{\left\lceil {#1} \right\rceil}}
+%\newcommand{\implies}{{\Rightarrow}}
+%\newcommand{\mapsto}{{\Rightarrow}}
+
+\newcommand{\binomg}[2]{{\binom{#1}{#2}}_{\Gamma}}
+\newcommand{\aprior}{{f(p)}}
+%\newcommand{\ws}[2]{{\omega_{{#1},{#2}}}}
+%\newcommand{\wstk}{{\ws{t}{k}}}
+\newcommand{\ssh}{{\alpha}}
+\newcommand{\sss}[2]{{\alpha_{{#1},{#2}}}}
+\newcommand{\sstk}{{\sss{t}{k}}}
+\newcommand{\intersex}{{\bigcap}}
+%\newcommand{\cclass}{{\cal}}
+
+%\newcommand{\proj}[3]{{P_{{#1},{#2}}({#3})}}
+\newcommand{\projeu}[2]{{{\cal P}_{{#1}}({#2})}}
+\newcommand{\proj}[2]{{{\cal P}_{{#2}}({#1})}}
+
+
+
+% \input{mjhbibmacs}
+\newcommand{\coverbook}{***}
+\newcommand{\decgenboost}{{fs-dgolab-95}}
+\newcommand{\dotprodpaper}{w-pdefw-97}
+\newcommand{\vovktrack}{b-dsps-97}
+\newcommand{\specialist}{fssw-se-97}
+\newcommand{\trackii}{h-tbet-97}
+\newcommand{\yoramport}{s-trcpsa-97}
+\newcommand{\diskidle}{hls-ddstmc-96}
+\newcommand{\mtstrack}{bb-olmts-97}
+\newcommand{\newvovk}{v-gpea-95}
+\newcommand{\tracklong}{herbster98tracking}
+\newcommand{\hkw}{hkw-spisglf-98}
+\newcommand{\eg}{kw-avegulp-97}
+\newcommand{\wm}{lw-wma-94}
+\newcommand{\experts}{cfhhsw-huea-97}
+\newcommand{\gd}{clw-wqlbop-96}
+\newcommand{\hadapaper}{kw-pavwlvl-95}
+\newcommand{\agnostic}{kss-teal-94}
+\newcommand{\csiszaraxiom}{c-wylmeaa-91}
+
+\newcommand{\kacz}{k***}
+\newcommand{\mycapp}{***}
+\newcommand{\mycuni}{***}
+\newcommand{\kullbook}{***}
+%\newcommand{\regressionbndpaps}{***}
+\newcommand{\nellobook}{CriSha00}
+\newcommand{\perceptron}{r-ppmisob-58}
+\newcommand{\roseperc}{r-ppmisob-58}
+\newcommand{\vonneumproj}{neumanproj}
+\newcommand{\bbproj}{Bauschke:1996:PAS}
+\newcommand{\fabmyceil}{fm-alt-91}
+\newcommand{\novikoff}{n-ocpp-63}
+\newcommand{\kernperc}{fs-lmcpa-99}
+\newcommand{\kerntron}{fcc-kafslps-98}
+\newcommand{\romma}{ll-romma-01}
+\newcommand{\smotron}{Platt99}
+\newcommand{\genlarmar}{sc-frmd-99}
+\newcommand{\trackdisj}{aw-tbd-98}
+\newcommand{\derand}{b-dsps-97}
+\newcommand{\metrical}{bb-olmtsp-00}
+\newcommand{\shifttheory}{\wm,\tracklong,\trackdisj,\derand,\metrical,\trakregr}
+\newcommand{\trakregr}{hw-tbr-98}
+\newcommand{\rkhsaron}{a-trk-50}
+\newcommand{\vapchertpr}{vc-tpr-74}
+\newcommand{\boguyvap}{bgv-taomc-92}
+\newcommand{\origmetpot}{abr-thpfmprl-64}
+\newcommand{\vovkkern}{sgv-rrladv-98}
+\newcommand{\nickthesis}{l-mbllla-89}
+\newcommand{\winnow}{l-liaanla-88}
+\newcommand{\wcsingle}{hkw-rlbsn-01}
+\newcommand{\Mycielski}{m-lalo-88}
+\newcommand{\vovk}{v-as-90}
+\newcommand{\smolatalk}{smolatalk00}
+\newcommand{\rudinreplex}{IB-E883108}
+\newcommand{\azoury}{aw-rlbodeefd-99}
+\newcommand{\selfconfident}{acbg-ascolla-2003}
+\newcommand{\vovkcompete}{vovk99competitive}
+\newcommand{\vovkregression}{\vovkcompete}
+%\newcommand{\vovkregression}{nips-10:Vovk:1998}
+\newcommand{\avgexpert}{kivinen99averaging}
+\newcommand{\jaaktrack}{NIPS2003_LT04}
+% \newcommand{\ridge}{v-colr-97}
+\newcommand{\foster}{f-pitwc-97}
+\newcommand{\hoeff}{h-pisbrv-63}
+\newcommand{\jyrklms}{nips02-AA33}
+\newcommand{\fastkern}{h-lamofek-01}
+\iffalse
+\newcommand{\gproffline}{n-rcgpp-98,Williams1996Gaussian,gibbs-eff97,smola00sparse}
+\newcommand{\gpronline}{nc:Csato+Opper:2002,NIPS2003_AA15}
+\fi
+\newcommand{\gproffline}{Williams1996Gaussian,gibbs-eff97}
+\newcommand{\gpronline}{nc:Csato+Opper:2002,NIPS2003_AA15}
+
+\newcommand{\ibcoverview}{TraubWerschulz98}
+\newcommand{\mcmcsurvey}{mach:Andrieu+Freitas+Doucet:2003}
+\newcommand{\approxperm}{jerrum01polynomialtime}
+\newcommand{\mcmcvol}{dfr-rptaavcb-91}
+\newcommand{\biasedcoin}{f-pbsawob-96}
+\newcommand{\realcomplex}{bcss-cr-98}
+\newcommand{\yapbook}{y-fpaa-00}
+\newcommand{\pansurvey}{pan97solving}
+\newcommand{\massicvxkern}{mp-lkfr-04}
+
+%\newcommand{\cs}{{\Gamma}}
+%\newcommand{\csp}{{\gamma}}
+%\newcommand{\csa}{{\cs_{\csp}}}
+
+
+
+\newcommand{\into}{{\rightarrow}}
+\newcommand{\df}{d}
+\newcommand{\simplex}{{\Delta}}
+\newcommand{\dmu}{d\mu}
+\newcommand{\ft}{{f_{t}}}
+\newcommand{\fts}{{f_{t+1}}}
+\newcommand{\ff}{{f^*}}
+\newcommand{\Kxt}{K(\xt,\cdot)}
+\newcommand{\dre}{{d_{\mbox{re}}}}
+\newcommand{\dsq}{{d_{\mbox{sq}}}}
+
+\newcommand{\bwt}{\bw_t}
+\newcommand{\bwts}{\bw_{t+1}}
+\newcommand{\bwls}{\bw_{\ell+1}}
+
+
+
+
+\newcommand{\dop}[1]{{\langle{#1}\rangle}}
+\newcommand{\dotp}[2]{{\langle{#1,#2}\rangle}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\rent}{\operatorname{RE}}
+\newcommand{\hispace}{{\cal H}}
+\newcommand{\prehispace}{H}
+\newcommand{\hispacegp}{{\cal H}_\gparm}
+\newcommand{\prehispacegp}{H_{\gparm}}
+\newcommand{\exspace}{{\cal X}}
+\newcommand{\kf}{k}
+\newcommand{\kgp}{k_{\gparm}}
+\newcommand{\kgpt}{k_{\gparm}(x_t,\cdot)}
+
+\newcommand{\seq}{\{(\bx_1,y_1),\ldots,(\bx_{\ell},y_{\ell})\}}
+\newcommand{\sequ}{\{(\bx_1,y_1),\ldots\}}
+\newcommand{\aseq}{\{(x_1,y_1),\ldots,(x_{\ell},y_{\ell})\}}
+\newcommand{\kseq}{\{(K(x_1,\cdot),y_1),\ldots,(K(x_{\ell},\cdot),y_{\ell})\}}
+\newcommand{\ssequ}{\{(x_1,y_1),\ldots\}}
+\newcommand{\asequ}{\{(K(x_1,\cdot),y_1),\ldots\}}
+\newcommand{\fseq}{\{\fset_1,\ldots,\fset_{\ell}\}}
+\newcommand{\fsequ}{\{\fset_1,\ldots\}}
+\newcommand{\lhs}{\operatorname{lhs}}
+\newcommand{\rhs}{\operatorname{rhs}}
+\newcommand{\lhsa}[1]{\operatorname{lhs}_{\{{#1}\}}}
+\newcommand{\rhsa}[1]{\operatorname{rhs}_{\{{#1}\}}}
+\newcommand{\gsa}[1]{\operatorname{gs}_{\{{#1}\}}}
+%\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+\newcommand{\indi}{{\chi}}
+
+\newcommand{\lms}{{\sc lms }}
+\newcommand{\lmsns}{{\sc lms}}
+\newcommand{\fuse}{{\sc k-lms-net }}
+\newcommand{\fusens}{{\sc k-lms-net}}
+\newcommand{\ewalg}{{\sc clipped exponential weights }}
+\newcommand{\emewalg}{{\em exponential weights }}
+\newcommand{\mcmc}{{\sc mcmc }}
+\newcommand{\mcmcns}{{\sc mcmc}}
+\newcommand{\onehalf}{\frac{1}{2}}
+\newcommand{\parm}{\alpha}
+\newcommand{\dparm}{d\parm}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\oner}{\frac{1}{r}}
+\newcommand{\onez}{\frac{1}{z}}
+%\newcommand{\onec}{\frac{1}{c}}
+\newcommand{\oneeps}{\frac{1}{\epsilon}}
+\newcommand{\epsi}{\epsilon}
+
+\newcommand{\absepsa}[1]{{\overset{a}{\approx}}_{#1}}
+\newcommand{\relepsa}[1]{{\overset{r}{\approx}}_{#1}}
+\newcommand{\releps}{{\overset{r}{\approx}}_\epsilon}
+\newcommand{\relepsp}{{\overset{r}{\approx}}_{\epsilon'}}
+\newcommand{\abseps}{{\overset{a}{\approx}}_\epsilon}
+\newcommand{\absepsp}{{\overset{a}{\approx}}_{\epsilon'}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\wte}{w^{ii}}
+\newcommand{\yhe}{\hat{y}^{ii}}
+\newcommand{\yhl}{\hat{y}^{i}}
+\newcommand{\sq}{\Phi}
+\newcommand{\sql}{\Phi^{i}}
+\newcommand{\sqe}{\Phi^{ii}}
+\newcommand{\losse}{L^{ii}}
+\newcommand{\gparm}{\alpha}
+\newcommand{\dgparm}{d\alpha}
+\newcommand{\etae}{\eta^{ii}}
+\newcommand{\lont}{{ L_{[1,t]}}}
+\newcommand{\lupt}{{ L_{[1,t-1]}}}
+
+\newcommand{\hf}{\bh}
+\newcommand{\hfg}{\bh_{\gparm}}
+\newcommand{\wf}{\bw}
+\newcommand{\wfq}{\bw^{i}}
+\newcommand{\wfqq}{\bw^{ii}}
+\newcommand{\xf}{\bx}
+\newcommand{\wft}{\bw_t}
+\newcommand{\wftq}{\bw^{i}_{\gparm,t}}
+\newcommand{\wftsq}{\bw^{i}_{\gparm,t+1}}
+\newcommand{\wftqq}{\bw^{ii}_t}
+\newcommand{\wftqqg}{\bw^{ii}_t(\gparm)}
+\newcommand{\wftsqqg}{\bw^{ii}_{t+1}(\gparm)}
+\newcommand{\wfts}{\bw_{t+1}}
+\newcommand{\xft}{\bx_t}
+\newcommand{\xftg}{\bx_t(\gparm)}
+\newcommand{\xfts}{\bx_{t+1}}
+\newcommand{\vf}{\bv}
+\newcommand{\vft}{\bv_t}
+\newcommand{\vftg}{\bv_t(\gparm)}
+\newcommand{\vftsg}{\bv_{t+1}(\gparm)}
+\newcommand{\wftg}{\bw_t(\gparm)}
+\newcommand{\wftsg}{\bw_{t+1}(\gparm)}
+\newcommand{\uf}{\bu}
+\newcommand{\ufg}{\bu(\gparm)}
+\newcommand{\sqxftg}{\sql(\bx_t(\gparm))}
+%\newcommand{\sqwftg}{\sqe_t(\bw_t(\gparm))}
+%\newcommand{\sqwftsg}{\sqe_{t+1}(\bw_{t+1}(\gparm))}
+\newcommand{\stdint}[1]{\int_0^1{#1}\dgparm}
+\newcommand{\glossa}{\sumtl L(y_t,\predt)}
+\newcommand{\glossgdu}{\sumtl L(y_t,\uf(x_t))}
+\newcommand{\upX}{{\hat{X}}}
+\newcommand{\upXg}{{\hat{X}_{\gparm}}}
+\newcommand{\upH}{{\hat{H}}}
+\newcommand{\upHg}{{\hat{H}_{\gparm}}}
+\newcommand{\upL}{{\hat{L}}}
+\newcommand{\upLg}{{\hat{L}_{\gparm}}}
+\newcommand{\upU}{{\hat{U}}}
+\newcommand{\upXA}{{\hat{X}_{\cal A}}}
+\newcommand{\upHA}{{\hat{H}_{\cal A}}}
+\newcommand{\upLA}{{\hat{L}_{\cal A}}}
+\newcommand{\mand}{\mbox{and}}
+
+\newcommand{\kcof}{\beta}
+\newcommand{\scon}{s_0}
+\newcommand{\sft}{{\cal S}}
+\newcommand{\cft}{{\cal C}}
+\newcommand{\fzer}{\norm{f_0}_0}
+\newcommand{\fone}{\norm{f_1}_1}
+\newcommand{\unionh}{\bigcup_{\gparm\in[0,1]} \hispacegp}
+\newcommand{\civ}{\sigma}
+
+\newcommand{\tev}{x}
+\newcommand{\ev}{y}
+\newcommand{\apev}{\bar{y}}
+
+\newcommand{\klg}{{ \mathcal{L} = \frac{1}{2} \dot{\phi}^2 - \frac{1}{2}(\nabla\phi)^2 -\frac{1}{2}m^2\phi^2}}
+
+\newcommand{\varfield}{{\alpha\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\Delta\phi\right)}}
+
+\newcommand{\lagrangian}{{\mathcal{L} = (\hbar c) \overline{\Psi} \gamma^{\mu}\partial_{\mu} \Psi + mc^2 	\overline{\Psi}\Psi	}}
+
+\newcommand{\costhetahalf}{\cos\left(\frac{\theta}{2}\right)}
+\newcommand{\sinthetahalf}{{\sin\left(\frac{\theta}{2}\right)}}
+\newcommand{\LambdaMuNu}{{\tensor{\Lambda}{^{\mu}_\nu}}}
+
+
+%\includecomment{longversion}
+%\excludecomment{shortversion}
+%\includecomment{shortversion}
+%\excludecomment{longversion}
+
+\begin{document}
+	%\rm
+	%\pagestyle{myheadings}
+	%\markright{DRAFT(QP:MJH) -- \protect\today} %***
+	\title{
+		Unraveling New Physics effects in rare B decays using Neural Networks
+		\\
+	}%{\large DO NOT DISTRIBUTE}
+	
+	\author{Óliver Partida Gutiérrez
+		%\thanks{This work was supported in part by the
+		%IST Programme of the European Community, under
+		%the PASCAL Network of Excellence, IST-2002-506778.
+		% This publication only reflects the authors' views.}
+	}
+	\iffalse
+	
+	\fi
+	\maketitle
+	\begin{abstract}
+		
+	\end{abstract}
+	\renewcommand{\abstractname}{Abstract}
+	\begin{abstract}
+	   
+	\end{abstract}
+	\tableofcontents
+	\section{Introducción}
+	
+	\begin{figure}
+		\includegraphics[width=\textwidth]{observables.png}
+		\caption{} 
+	\end{figure}
+	
+	\section{Conclusiones}
+	
+	\nocite{*}
+	\bibliography{references}{}
+	\bibliographystyle{ieeetr}	
+\end{document}
+
+

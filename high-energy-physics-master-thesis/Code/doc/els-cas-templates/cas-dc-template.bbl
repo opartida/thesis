@@ -1,0 +1,95 @@
+\begin{thebibliography}{7}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Aaij et~al.(2014)Aaij, Adeva, Adinolfi, Affolder, Ajaltouni, Akar,
+  Albrecht, Alessio, Alexander, Ali and et~al.}]{Aaij_2014}
+\bibinfo{author}{Aaij, R.}, \bibinfo{author}{Adeva, B.},
+  \bibinfo{author}{Adinolfi, M.}, \bibinfo{author}{Affolder, A.},
+  \bibinfo{author}{Ajaltouni, Z.}, \bibinfo{author}{Akar, S.},
+  \bibinfo{author}{Albrecht, J.}, \bibinfo{author}{Alessio, F.},
+  \bibinfo{author}{Alexander, M.}, \bibinfo{author}{Ali, S.},
+  \bibinfo{author}{et~al.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Test of lepton universality
+  usingb+→k+ℓ+ℓ−decays}.
+\newblock \bibinfo{journal}{Physical Review Letters} \bibinfo{volume}{113}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1103/PhysRevLett.113.151601},
+  \DOIprefix\doi{10.1103/physrevlett.113.151601}.
+%Type = Article
+\bibitem[{Algueró et~al.(2019a)Algueró, Capdevila, Crivellin, Descotes-Genon,
+  Masjuan, Matias and Virto}]{Alguer__2019}
+\bibinfo{author}{Algueró, M.}, \bibinfo{author}{Capdevila, B.},
+  \bibinfo{author}{Crivellin, A.}, \bibinfo{author}{Descotes-Genon, S.},
+  \bibinfo{author}{Masjuan, P.}, \bibinfo{author}{Matias, J.},
+  \bibinfo{author}{Virto, J.}, \bibinfo{year}{2019}a.
+\newblock \bibinfo{title}{Emerging patterns of new physics with and without
+  lepton flavour universal contributions}.
+\newblock \bibinfo{journal}{The European Physical Journal C}
+  \bibinfo{volume}{79}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1140/epjc/s10052-019-7216-3},
+  \DOIprefix\doi{10.1140/epjc/s10052-019-7216-3}.
+%Type = Article
+\bibitem[{Algueró et~al.(2019b)Algueró, Capdevila, Descotes-Genon, Masjuan
+  and Matias}]{Alguero__2019}
+\bibinfo{author}{Algueró, M.}, \bibinfo{author}{Capdevila, B.},
+  \bibinfo{author}{Descotes-Genon, S.}, \bibinfo{author}{Masjuan, P.},
+  \bibinfo{author}{Matias, J.}, \bibinfo{year}{2019}b.
+\newblock \bibinfo{title}{Are we overlooking lepton-flavor-universal new
+  physics in b→sℓℓ?}
+\newblock \bibinfo{journal}{Physical Review D} \bibinfo{volume}{99}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1103/PhysRevD.99.075017},
+  \DOIprefix\doi{10.1103/physrevd.99.075017}.
+%Type = Misc
+\bibitem[{Capdevila et~al.(2017a)Capdevila, Crivellin, Descotes-Genon, Matias
+  and Virto}]{capdevila2017patterns}
+\bibinfo{author}{Capdevila, B.}, \bibinfo{author}{Crivellin, A.},
+  \bibinfo{author}{Descotes-Genon, S.}, \bibinfo{author}{Matias, J.},
+  \bibinfo{author}{Virto, J.}, \bibinfo{year}{2017}a.
+\newblock \bibinfo{title}{Patterns of new physics in $b\to s\ell^+\ell^-$
+  transitions in the light of recent data}.
+\newblock \href{http://arxiv.org/abs/1704.05340}{\tt arXiv:1704.05340}.
+%Type = Article
+\bibitem[{Capdevila et~al.(2017b)Capdevila, Descotes-Genon, Hofer and
+  Matias}]{Capdevila_2017}
+\bibinfo{author}{Capdevila, B.}, \bibinfo{author}{Descotes-Genon, S.},
+  \bibinfo{author}{Hofer, L.}, \bibinfo{author}{Matias, J.},
+  \bibinfo{year}{2017}b.
+\newblock \bibinfo{title}{Hadronic uncertainties in b → k ∗ μ + μ −: a
+  state-of-the-art analysis}.
+\newblock \bibinfo{journal}{Journal of High Energy Physics}
+  \bibinfo{volume}{2017}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1007/JHEP04(2017)016},
+  \DOIprefix\doi{10.1007/jhep04(2017)016}.
+%Type = Article
+\bibitem[{Descotes-Genon et~al.(2016)Descotes-Genon, Hofer, Matias and
+  Virto}]{Descotes_Genon_2016}
+\bibinfo{author}{Descotes-Genon, S.}, \bibinfo{author}{Hofer, L.},
+  \bibinfo{author}{Matias, J.}, \bibinfo{author}{Virto, J.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Global analysis of b → sℓℓ anomalies}.
+\newblock \bibinfo{journal}{Journal of High Energy Physics}
+  \bibinfo{volume}{2016}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1007/JHEP06(2016)092},
+  \DOIprefix\doi{10.1007/jhep06(2016)092}.
+%Type = Misc
+\bibitem[{Goodfellow et~al.(2014)Goodfellow, Pouget-Abadie, Mirza, Xu,
+  Warde-Farley, Ozair, Courville and Bengio}]{goodfellow2014generative}
+\bibinfo{author}{Goodfellow, I.J.}, \bibinfo{author}{Pouget-Abadie, J.},
+  \bibinfo{author}{Mirza, M.}, \bibinfo{author}{Xu, B.},
+  \bibinfo{author}{Warde-Farley, D.}, \bibinfo{author}{Ozair, S.},
+  \bibinfo{author}{Courville, A.}, \bibinfo{author}{Bengio, Y.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Generative adversarial networks}.
+\newblock \href{http://arxiv.org/abs/1406.2661}{\tt arXiv:1406.2661}.
+
+\end{thebibliography}

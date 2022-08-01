@@ -1,0 +1,390 @@
+\documentclass[11pt,amsmath,amssymb]{article}
+
+%\documentclass[twocolumn,amssymb,secnumarabic,preprintnumbers, %amsmath]{revtex4}
+%\pdfoutput=1
+%\documentclass[aps,10pt,twocolumn,showpacs,amsmath,amssymb,nofootinbib]{revtex4-1}
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{soul}
+
+
+%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+
+%\usepackage{jheppub} % for details on the use of the package, please
+                     % see the JHEP-author-manual
+
+\usepackage{longtable}
+%\usepackage{widetable}
+%\topmargin -1.5cm
+
+\usepackage{graphicx}
+%\usepackage{amssymb}
+\usepackage{booktabs}
+%\usepackage{color}
+\usepackage{placeins}
+\usepackage{multirow}
+\usepackage{url}
+%\usepackage{hyperref}
+
+% \extracolsep{\fill}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\newcommand{\rb}[1]{\renewcommand{\tabcolsep}{#1}}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\C}[1]{{\cal C}_{#1}}
+\newcommand{\B}{{\cal B}}
+
+\newcommand{\ac}[1]{{\color{blue} #1}}
+
+\newcommand{\ord}{\mathcal{O}}
+\newcommand{\nn}{\noindent}
+\newcommand{\nb}{\nonumber}
+\newcommand{\arccot}{{\rm arccot}}
+\newcommand{\sss}{\scriptscriptstyle}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\eq}[1]{\begin{equation} #1 \end{equation}}
+\newcommand{\eqa}[1]{\begin{eqnarray} #1 \end{eqnarray}}
+\newcommand{\Cc}[1]{{\cal C}_{#1}}
+\newcommand{\Cp}[1]{{\cal C}_{#1}'}
+\newcommand{\delC}[1]{\delta {\cal C}_{#1}}
+\newcommand{\dC}[1]{{\cal C}_{#1}^{\rm NP}}
+\newcommand{\dCp}[1]{{\cal C}_{#1^\prime}^{\rm NP}}
+\newcommand{\av}[1]{\langle #1 \rangle}
+\newcommand{\afb}{A_{\rm FB}}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\qm}[1]{{\color{blue} #1}}
+\newcommand{\jv}[1]{{\red {#1}}}
+
+\newcommand{\sect}[1]{\section{\hspace{-0.3cm} #1}}
+
+\begin{document}
+
+\title{Proposal for B-meson decay analysis}
+\author{Pere Masjuan}
+\date{\today}
+\maketitle
+
+\section{State-of-the-art}
+
+Current analysis of anomalies in flavour physics are based on a linear regression of a $\chi^2$ function.
+After taking into account correlation between theoretical predictions and experimental observables,
+a $\chi^2$ function is built and minimized.
+
+Currently, 180 observables are considered from different collaborations~\cite{Aaij:2019wad,BelleRK,Aaij:2014pli,Abdesselam:2019wac,Aaboud:2018mst,Wehle:2016yoi,Abdesselam:2016llu}. Observable is referred to a measurement of either an angular
+observable, a branching ratio, or a ratio, in a particular energy bin. For $B \to K \mu\mu$, the available 
+energy of the $\mu\mu$ invariant mass (the so called $q^2$ variable), runs from $0$ to $(m_B - m_K)^2 \sim 22$GeV$^2$
+while for the $B \to K* \mu\mu$ runs from $0$ to $(m_B - m_{K*})^2 \sim 19$GeV$^2$.
+In this exercise, charged and neutral modes of the $B$ meson are considered. This brings, $B^{0,\pm} \to K^{0,\pm}$ which
+are equivalent up to isospin corrections, thus important to include all of them for enlarging the data set. We also count
+with two different leptonic final states, $\mu\mu$ and $e+e-$. Rations of the same observable but with different lepton
+at the final state, the so-called $R$ ratios, are also included and play an important psychological goal since they are a clear
+indication of the Lepton Flavor Universality Violation - LFUV - (this is, that the Z and W bosons of the SM interact differently with electrons
+and muons, something which is not expected from the theory)~\cite{Vicente:2020usa}.
+On the contrary, deviations between theory and experiment for specific lepton, either muons or electrons, cannot distinguish
+whether the anomaly is due to LFUV phenomenon or new physics come universally for muons and electrons. Only the combination
+of lepton-flavor dependent and rations of observables with different leptons in the final state may help. But actually, there is no
+clean way to disentangle such situation and current attempts consider that the most appealing solution to the puzzle is indeed
+having two different new physics scenarios, two different new-physics particles, one affecting all lepton flavours and a second one
+affecting exclusively the muonic modes~\cite{Alguero:2018nvb}.
+
+For a given decay process, for example, the branching ratio $B^0 \to K^{*0} \mu\mu$ we will have five or six energy bins,
+with each bin having 1 or 2 GeV$^2$ sizes, thus providing 5 of 6 so-called observables into the fit.
+
+For each measured observable, we have a theory prediction based on the Standard Model of Particle Physics (SM).
+With 180 observables, the $\chi^2$ value of the SM reaches 225 points~\cite{Alguero:2019ptt}, which corresponds
+to a p-value of 1.4$\%$. This indicates the SM to be very far to explain experimental measurements.
+
+The strategy then has been to include on top of the SM, new operators in the effective Hamiltonian to be able
+to account for such experimental discrepancies.
+
+Standard strategy, the simplest one, considers one-single operator at a time, the so-called 1D fits, starting with ${\cal C}_7$,
+${\cal C}_9$ and ${\cal C}_{10}$. For example, in Table~\ref{tab:results1D}, some examples can be found from Ref.~\cite{Alguero:2019ptt}.
+The first one, a fit with $\Cc{9\mu}^{\rm NP}$ returns $\Cc{9\mu}^{\rm NP} = -0.98$. The $\Cc{9\mu}^{\rm SM} \sim 4$, so 
+the NP correction to the SM to explain these anomalies are around $25\%$, pretty large. Pull$_{\rm SM}$ reflects how difficult
+would be for that model (defined as SM + $\Cc{9\mu}^{\rm NP}$ ) would be able to explain the SM. The p-value is then a criterion
+to decide whether this fit is rejected or not. Since p-values are very large, the fit is very good compared to the SM p-value of 1.4$\%$.
+ 
+ \begin{table*}[h!] \scriptsize
+\begin{tabular}{c||c|c|c|c||c|c|c|c} %\scriptsize
+ & \multicolumn{4}{c||}{All} &  \multicolumn{4}{c}{LFUV}\\
+\hline
+1D Hyp.   & Best fit& 1 $\sigma$/2 $\sigma$   & Pull$_{\rm SM}$ & p-value & Best fit & 1 $\sigma$/ 2 $\sigma$  & Pull$_{\rm SM}$ & p-value\\
+\hline\hline
+\multirow{2}{*}{$\Cc{9\mu}^{\rm NP}$}    & \multirow{2}{*}{-0.98} &    $[-1.15,-0.81]$ &    \multirow{2}{*}{5.6}   & \multirow{2}{*}{65.4\,\%}
+&   \multirow{2}{*}{-0.89}   &$[-1.23,-0.59]$&   \multirow{2}{*}{3.3}  & \multirow{2}{*}{52.2\,\%}  \\
+ &  & $[-1.31,-0.64]$ &  & &  &  $[-1.60,-0.32]$ & \\
+ \multirow{2}{*}{$\Cc{9\mu}^{\rm NP}=-\Cc{10\mu}^{\rm NP}$}    &   \multirow{2}{*}{-0.46} &    $[-0.56,-0.37]$ &   \multirow{2}{*}{5.2}  & \multirow{2}{*}{55.6\,\%}
+ &  \multirow{2}{*}{-0.40}   &   $[-0.53,-0.29]$ & \multirow{2}{*}{4.0}   & \multirow{2}{*}{74.0\,\%}  \\
+ &  & $[-0.66,-0.28]$ &  & & & $[-0.63,-0.18]$  &    \\
+ \multirow{2}{*}{$\Cc{9\mu}^{\rm NP}=-\Cc{9'\mu}$}     & \multirow{2}{*}{-0.99} &    $[-1.15,-0.82]$   &  \multirow{2}{*}{5.5}  & \multirow{2}{*}{62.9\,\%}
+ &  \multirow{2}{*}{-1.61}   &    $[-2.13,-0.96]$  & \multirow{2}{*}{3.0} & \multirow{2}{*}{42.5\,\%} \\
+ &  & $[-1.31,-0.64]$ &  & & & $[-2.54,-0.41]$ &    \\
+\hline
+ \multirow{2}{*}{$\Cc{9\mu}^{\rm NP}=-3 \Cc{9e}^{\rm NP}$} & \multirow{2}{*}{-0.87}  & $[-1.03,-0.71]$ & \multirow{2}{*}{5.5}  & \multirow{2}{*}{61.9\,\%}
+  &   \multirow{2}{*}{-0.66} &    $[-0.90,-0.44]$ & \multirow{2}{*}{3.3}  & \multirow{2}{*}{52.2\,\%}
+\\
+ & & $[-1.19,-0.55]$ &  & & & $[-1.17,-0.24]$     & \\
+\end{tabular} \scriptsize
+\caption{Most prominent 1D patterns of NP in $b\to s\mu^+\mu^-$. Pull$_{\rm SM}$ is quoted in units of standard deviation. The $p$-value of the SM hypothesis is 11.0\% for the fit ``All" and 8.0\% for the fit LFUV.} \scriptsize
+\label{tab:results1D}
+\end{table*}
+
+
+\section{Aim of this project}
+
+Use a neural network to determine what combination of new operators renders the best possible fit to experimental data.
+
+The intuition can be obtained by looking at the tables of Ref.~\cite{Alguero:2019ptt}, one of them reproduced here.
+Forget by now about coefficients with a prime such as $\Cc{9'}$ or $\Cc{10'}$. The difference between $\Cc{9}^{\rm V}$ and $\Cc{9}^{\rm U}$
+is that $V$ refers to muon channel exclusively while $U$ means both muons and electrons.
+In the long table, different ad-hoc combinations of wilson coefficients are considered. There are, of course, other options. The question is what
+is the particular combnation that renders the largest agreement with data without using all coeficients free. This is, instead of using, for example
+4 parameters $\Cc{9}^{\rm V}$, $\Cc{9}^{\rm U}$ and $\Cc{10}^{\rm V}$, $\Cc{10}^{\rm U}$, what combination of two parameters (made from the
+combination of these four, for example $\Cc{9}^{\rm V} = \pm \Cc{9}^{\rm U}$, $\Cc{9}^{\rm V} = \pm \Cc{10}^{\rm V}$) yields the best agreement.
+
+The goal is then try to look for these combination via exploring the many options using a neural network. The input shall be a fit with one single
+parameter at the begining, and explore different $\chi^2$ values using different input coefficients for each observable and then let the neural
+network decide the best strategy. Combining 2D fits, with two different combinations of coeficients, arbitrary cobination, also provides information
+for the NN to learn, and it is proved that this is most eficient.
+
+\begin{table*}[h!] \small \begin{center}
+\begin{tabular}{lc||c|c|c|c|c}
+\multicolumn{2}{c||}{Scenario} & Best-fit point & 1 $\sigma$ & 2 $\sigma$ & Pull$_{\rm SM}$ & p-value \\
+\hline\hline
+\multirow{ 3}{*}{Scenario 5} &$\Cc{9\mu}^{\rm V}$ & $-0.54$ & $[-1.06,-0.06]$ & $[-1.68,+0.39]$ &
+\multirow{ 3}{*}{6.0} & \multirow{ 3}{*}{39.4\,\%} \\
+&$\Cc{10\mu}^{\rm V}$ & $+0.58$ & $[+0.13,+0.97]$ & $[-0.48,+1.33]$ & \\
+&$\Cc{9}^{\rm U}=\Cc{10}^{\rm U}$ & $-0.43$ & $[-0.85,+0.05]$ & $[-1.23,+0.67]$ &\\
+\hline
+\multirow{ 2}{*}{Scenario 6}&$\Cc{9\mu}^{\rm V}=-\Cc{10\mu}^{\rm V}$ & $-0.56$ & $[-0.65,-0.47]$ & $[-0.75,-0.38]$ &
+\multirow{ 2}{*}{6.2} & \multirow{ 2}{*}{41.4\,\%} \\
+&$\Cc{9}^{\rm U}=\Cc{10}^{\rm U}$ & $-0.41$ & $[-0.53,-0.29]$ & $[-0.64,-0.16]$ &\\
+\hline
+\multirow{ 2}{*}{Scenario 7}&$\Cc{9\mu}^{\rm V}$ & $-0.84$ & $[-1.15,-0.54]$ & $[-1.48,-0.26]$ &
+\multirow{ 2}{*}{6.0} & \multirow{ 2}{*}{36.5\,\% }  \\
+&$\Cc{9}^{\rm U}$ & $-0.25$ & $[-0.59,+0.10]$ & $[-0.92,+0.47]$  &\\
+\hline
+\multirow{ 2}{*}{Scenario 8}&$\Cc{9\mu}^{\rm V}=-\Cc{10\mu}^{\rm V}$ & $-0.34$ & $[-0.44,-0.25]$ & $[-0.54,-0.16]$ &
+\multirow{ 2}{*}{6.5} & \multirow{ 2}{*}{48.4\,\%} \\
+&$\Cc{9}^{\rm U}$ & $-0.80$ & $[-0.98,-0.60]$ & $[-1.16,-0.39]$ &\\
+\hline\hline
+\multirow{ 2}{*}{Scenario 9}&$\Cc{9\mu}^{\rm V}=-\Cc{10\mu}^{\rm V}$ & $-0.66$ & $[-0.79,-0.52]$ & $[-0.93,-0.40]$ &
+\multirow{ 2}{*}{5.7} & \multirow{ 2}{*}{28.4\,\%} \\
+&$\Cc{10}^{\rm U}$ & $-0.40$ & $[-0.63,-0.17]$ & $[-0.86,+0.07]$ &\\
+\hline
+\multirow{ 2}{*}{Scenario 10}&$\Cc{9\mu}^{\rm V}$ & $-1.03$ & $[-1.18,-0.87]$ & $[-1.33,-0.71]$ &
+\multirow{ 2}{*}{6.2} & \multirow{ 2}{*}{41.5\,\%} \\
+&$\Cc{10}^{\rm U}$ & $+0.28$ & $[+0.12,+0.45]$ & $[-0.04,+0.62]$ &\\
+\hline
+\multirow{ 2}{*}{Scenario 11}&$\Cc{9\mu}^{\rm V}$ & $-1.11$ & $[-1.26,-0.95]$ & $[-1.40,-0.78]$ &
+\multirow{ 2}{*}{6.3} & \multirow{ 2}{*}{43.9\,\%} \\
+&$\Cc{10'}^{\rm U}$ & $-0.29$ & $[-0.44,-0.15]$ & $[-0.58,-0.01]$ &\\
+\hline
+\multirow{ 2}{*}{Scenario 12}&$\Cc{9'\mu}^{\rm V}$ & $-0.06$ & $[-0.21,+0.10]$ & $[-0.37,+0.26]$ &
+\multirow{ 2}{*}{2.1} & \multirow{ 2}{*}{2.2\,\%} \\
+&$\Cc{10}^{\rm U}$ & $+0.44$ & $[+0.26,+0.62]$ & $[+0.09,+0.81]$ &\\
+\hline
+\multirow{ 4}{*}{Scenario 13}&$\Cc{9\mu}^{\rm V}$ & $-1.16$ & $[-1.31,-1.00]$ & $[-1.46,-0.83]$ &
+\multirow{ 4}{*}{6.2} & \multirow{ 4}{*}{49.2\,\%} \\
+&$\Cc{9'\mu}^{\rm V}$ & $+0.56$ & $[+0.27,+0.83]$ & $[-0.02,+1.10]$ &\\
+&$\Cc{10}^{\rm U}$ & $+0.28$ & $[+0.08,+0.49]$ & $[-0.11,+0.70]$ &\\
+&$\Cc{10'}^{\rm U}$ & $+0.01$ & $[-0.19,+0.22]$ & $[-0.40,+0.42]$ &\\
+\end{tabular}
+\caption{Most prominent patterns for LFU and LFUV NP contributions from Fit ``All''.
+Scenarios 5 to 8 were introduced in Ref.~\cite{Alguero:2018nvb}.  Scenarios 9 (motivated by 2HDMs~\cite{Crivellin:2019dun}) and 10 to 13  (motivated by $Z^\prime$ models with vector-like quarks~\cite{Bobeth:2016llm}) are newly introduced in the main text.}\label{Fit3DbisApp} \end{center}
+\end{table*}
+
+
+\begin{equation}
+\chi^2 = \sum_i \frac{ ( y^{\rm exp}_i - {\rm Model}_i )^2}{ \sigma {\rm Exp}^2 + \sigma {\rm Model}^2}\, ,
+\end{equation}
+\noindent
+where Model refers to the theoretical calculation. Following the same idea, \textit{pull} is
+\begin{equation}
+{\rm Pull}_i = \frac{ ( y^{\rm exp}_i - {\rm Model}_i )}{ \sqrt{\sigma {\rm Exp}^2 + \sigma {\rm Model}^2} }\
+\end{equation}
+
+
+
+
+
+\section{Trining exercise}
+
+Before starting with full fits with 180 observables, we shall explore the mechanics with a just few of them that can be easily parameterized 
+as a polynomial. The example considers the $\langle P'_5 \rangle$ observable, the most famous one, in different bins.
+I run my codes to generate a polynomial description for this observable. In the table, experimental results and SM predictions for the observable
+are collected.
+
+\begin{table}[ht]
+\caption{$\langle P'_5 \rangle$ bins, SM predictions, experimental results from LHCb collaboration, and Pulls between SM and experiment.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+bin & SM & experiment & Pull\\
+\hline
+$( 0.1,0.98 )$ &   0.67 $\pm 0.14$ & 0.52 $\pm 0.10$ & +0.9\\
+$( 1.1, 2.5 )$ &   0.20 $\pm 0.12$ & 0.37 $\pm 0.12$ & -1.0\\
+$( 2.5,4 )$ &   -0.49 $\pm 0.12$ & -0.15 $\pm 0.15$ & -1.8\\
+$( 4,6 )$ &   -0.83 $\pm 0.08$ & -0.44 $\pm 0.12$ & -2.7\\
+$( 6,8 )$ &   -0.94 $\pm 0.08$ & -0.58 $\pm 0.09$ & -2.9\\
+$( 15,19 )$ &   -0.57 $\pm 0.05$ & -0.67 $\pm 0.06$ & +1.2\\
+\hline
+\end{tabular}
+\end{center}
+\label{p5presults}
+\end{table}%
+
+We will use the following parameterization for the observables.
+\begin{eqnarray}\nonumber
+\langle P'_5 \rangle_{[0.1,0.98]} & = & 0.674 - 0.060 C_{10} - 0.012 C_{10}^2 - 0.104 C_{9} - 0.010 C_{9}C_{10} + 0.005 C_{9}^2 \\ \nonumber
+\langle P'_5 \rangle_{[1.1,2.5]} & = & 0.196- 0.001 C_{10} - 0.004 C_{10}^2 - 0.210 C_{9} + 0.001 C_{9}C_{10} + 0.002 C_{9}^2 \\ \nonumber
+\langle P'_5 \rangle_{[2.5,4]} & = & -0.491- 0.042 C_{10} + 0.001 C_{10}^2 - 0.285 C_{9} - 0.020 C_{9}C_{10} + 0.033 C_{9}^2 \\ \nonumber
+\langle P'_5 \rangle_{[4,6]} & = & -0.826 - 0.066 C_{10} + 0.004 C_{10}^2 - 0.207 C_{9} + 0.011 C_{9}C_{10} + 0.058 C_{9}^2 \\ \nonumber
+\langle P'_5 \rangle_{[6,8]} & = & -0.937 - 0.060 C_{10} + 0.009 C_{10}^2 - 0.131 C_{9} + 0.036 C_{9}C_{10} + 0.055 C_{9}^2 \\ \nonumber
+\langle P'_5 \rangle_{[15,19]} & = & -0.572 - 0.021 C_{10} + 0.010 C_{10}^2 - 0.040 C_{9} + 0.029 C_{9}C_{10} + 0.025 C_{9}^2 \\ \nonumber
+\end{eqnarray}
+\noindent
+Notice that for $\Cc{9} = \Cc{10} = 0$, we recover the SM prediction.  
+  
+Imagine, you solve   $\langle P'_5 \rangle_{[0.1,0.98]}  = 0.52 \pm 0.10$ but using only $\Cc{9}$, you get $\Cc{9} = 1.58$. However, if you take
+$\langle P'_5 \rangle_{[4,6]}  = -0.83 \pm 0.08$, you get $\Cc{9} = -1.32$ which has nothing to do.
+A combined fit to all these observables returns $\Cc{9} = -1.06$ with $\chi^2_{\rm min} = 9.2$, which is not really a good fit. Moreover, if we neglect
+the last bin, the fit returns $\Cc{9} = -1.24$ with $\chi^2_{\rm min} = 4.0$, much better. The question is then, what observable weights more in the fit
+and how can be put into agreement the different tensions.
+
+\begin{figure}[htbp]
+\begin{center}
+%\includegraphics[width=15cm]{NN.pdf}
+%\caption{Simplistic view of a neural network.}
+%\label{NN}
+\end{center}
+\end{figure}
+
+
+Figure~\ref{NN} represents the final philosophy. Each observable (yellow circle) has an experimental value ($x_i$) 
+depending on the bin you are looking at. For $\langle P'_5 \rangle$ we have 6 different bins, so we will have 6 different $x_i$.
+Each of it can include $\Cc{9}$, $\Cc{10}$, with $V,U$, and all these options are represented with $y_i$. The combination of
+observable in a particular bin, with a fit with a ${\cal C}$ coefficient, returns a $\chi^2$ value.
+
+The NN should learn how to reach the best $\chi^2$ by exploring all the possible combinations of ${\cal C}$ wilson coefficients
+with the experimental values and learn what is the optimal weights of the observables.
+
+Two different strategies to be compared:
+\begin{itemize}
+\item look for the minimum $\chi^2$
+\item look for the solution with closer $\chi^2/dof = 1$ possible.
+\end{itemize}
+
+
+  
+\begin{thebibliography}{99}
+
+%\cite{Alguero:2019ptt}
+\bibitem{Alguero:2019ptt}
+M.~Alguer\'o, B.~Capdevila, A.~Crivellin, S.~Descotes-Genon, P.~Masjuan, J.~Matias, M.~Novoa and J.~Virto,
+%``Emerging patterns of New Physics with and without Lepton Flavour Universal contributions,''
+Eur. Phys. J. C \textbf{79} (2019) no.8, 714
+%doi:10.1140/epjc/s10052-019-7216-3
+[arXiv:1903.09578 [hep-ph]].
+%82 citations counted in INSPIRE as of 17 Apr 2020
+
+\bibitem{Alguero:2018nvb}
+  M.~Alguer\'o, B.~Capdevila, S.~Descotes-Genon, P.~Masjuan and J.~Matias,
+  %``Are we overlooking lepton flavour universal new physics in $b\to s\ell\ell$ ?,''
+  Phys.\ Rev.\ D {\bf 99} (2019) no.7,  075017
+  %doi:10.1103/PhysRevD.99.075017
+  [arXiv:1809.08447 [hep-ph]].
+  %%CITATION = doi:10.1103/PhysRevD.99.075017;%%
+  
+%\cite{Vicente:2020usa}
+\bibitem{Vicente:2020usa}
+A.~Vicente,
+%``Theory status and implications of $R_K^{(\ast)}$,''
+[arXiv:2001.04788 [hep-ph]].
+%1 citations counted in INSPIRE as of 17 Apr 2020
+
+\bibitem{Aaij:2019wad}
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+ % ``Search for lepton-universality violation in $B^+\to K^+\ell^+\ell^-$ decays,''
+  arXiv:1903.09252 [hep-ex].
+  %%CITATION = ARXIV:1903.09252;%%
+  
+  \bibitem{BelleRK}
+  S.~Choudhury for the Belle collaboration, ``Measurement of Lepton Flavour Universality in $B$ decays at Belle'', Talk at `EPS-HEP Conference 2019'.
+
+  \bibitem{Aaij:2014pli}
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+ % ``Differential branching fractions and isospin asymmetries of $B \to K^{(*)} \mu^+ \mu^-$ decays,''
+  JHEP {\bf 1406} (2014) 133
+ % doi:10.1007/JHEP06(2014)133
+  [arXiv:1403.8044 [hep-ex]].
+  %%CITATION = doi:10.1007/JHEP06(2014)133;%%
+
+
+ \bibitem{Abdesselam:2019wac}
+  A.~Abdesselam {\it et al.} [Belle Collaboration],
+  %``Test of lepton flavor universality in ${B\to K^\ast\ell^+\ell^-}$ decays at Belle,''
+  arXiv:1904.02440 [hep-ex].
+  %%CITATION = ARXIV:1904.02440;%%
+
+\bibitem{Aaboud:2018mst}
+  M.~Aaboud {\it et al.} [ATLAS Collaboration],
+ % ``Study of the rare decays of $B^0_s$ and $B^0$ mesons into muon pairs using data collected during 2015 and 2016 with the ATLAS detector,''
+  %Submitted to: JHEP
+  [arXiv:1812.03017 [hep-ex]].
+  %%CITATION = ARXIV:1812.03017;%%
+
+\bibitem{FLAG}
+  S.~Aoki {\it et al.} [Flavour Lattice Averaging Group],
+ % ``FLAG Review 2019,''
+  arXiv:1902.08191 [hep-lat].
+  %%CITATION = ARXIV:1902.08191;%%
+  
+  \bibitem{Wehle:2016yoi}
+  S.~Wehle {\it et al.} [Belle Collaboration],
+  %``Lepton-Flavor-Dependent Angular Analysis of $B\to K^\ast \ell^+\ell^-$,''
+  Phys.\ Rev.\ Lett.\  {\bf 118} (2017) no.11,  111801
+%  doi:10.1103/PhysRevLett.118.111801
+  [arXiv:1612.05014 [hep-ex]].
+  %%CITATION = doi:10.1103/PhysRevLett.118.111801;%%
+  %195 citations counted in INSPIRE as of 25 Apr 2019
+
+
+\bibitem{Abdesselam:2016llu}
+   A.~Abdesselam {\it et al.} [Belle Collaboration],
+  %``Angular analysis of $B^0 \to K^\ast(892)^0 \ell^+ \ell^-$,''
+  arXiv:1604.04042 [hep-ex].
+  %%CITATION = ARXIV:1604.04042;%%
+  %139 citations counted in INSPIRE as of 25 Apr 2019
+  
+  \bibitem{Calibbi:2017qbu}
+  L.~Calibbi, A.~Crivellin and T.~Li,
+ % ``Model of vector leptoquarks in view of the $B$-physics anomalies,''
+  Phys.\ Rev.\ D {\bf 98} (2018) no.11,  115002
+  % doi:10.1103/PhysRevD.98.115002
+  [arXiv:1709.00692 [hep-ph]].
+  %%CITATION = doi:10.1103/PhysRevD.98.115002;%%
+  
+  
+  \bibitem{Crivellin:2019dun}
+  A.~Crivellin, D.~Muller and C.~Wiegand,
+  % ``$b\to s\ell^+\ell^-$ Transitions in Two-Higgs-Doublet Models,''
+  arXiv:1903.10440 [hep-ph].
+  %%CITATION = ARXIV:1903.10440;%%
+
+\bibitem{Bobeth:2016llm}
+  C.~Bobeth, A.~J.~Buras, A.~Celis and M.~Jung,
+  %``Patterns of Flavour Violation in Models with Vector-Like Quarks,''
+  JHEP {\bf 1704} (2017) 079
+  %doi:10.1007/JHEP04(2017)079
+  [arXiv:1609.04783 [hep-ph]].
+  %%CITATION = doi:10.1007/JHEP04(2017)079;%%
+
+\end{thebibliography}
+
+\end{document}

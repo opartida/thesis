@@ -1,0 +1,4 @@
+\babel@toc {spanish}{}
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Conclusiones}{1}{section.2}% 
